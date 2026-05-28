@@ -1,0 +1,65 @@
+2026-05-28 21:14:12,874 — [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-05-28 21:14:12,874 — [33mPress CTRL+C to quit[0m
+2026-05-28 21:14:12,876 —  * Restarting with stat
+2026-05-28 21:14:13,111 —  * Debugger is active!
+2026-05-28 21:14:13,113 —  * Debugger PIN: 120-107-968
+2026-05-28 21:14:38,362 — 127.0.0.1 - - [28/May/2026 21:14:38] "GET / HTTP/1.1" 200 -
+2026-05-28 21:14:38,408 — 127.0.0.1 - - [28/May/2026 21:14:38] "GET /static/style.css HTTP/1.1" 200 -
+2026-05-28 21:14:39,264 — 127.0.0.1 - - [28/May/2026 21:14:39] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-05-28 21:14:49,055 — Angelina chose Friday
+2026-05-28 21:14:49,974 — Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-49092855aeesm44229545e9.10 - gsmtp')
+2026-05-28 21:14:49,976 — 127.0.0.1 - - [28/May/2026 21:14:49] "POST /celebrate HTTP/1.1" 200 -
+2026-05-28 21:14:50,008 — 127.0.0.1 - - [28/May/2026 21:14:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-28 21:14:57,356 — Angelina chose Friday
+2026-05-28 21:14:58,246 — Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-45eed49f19bsm2783935f8f.14 - gsmtp')
+2026-05-28 21:14:58,247 — 127.0.0.1 - - [28/May/2026 21:14:58] "POST /celebrate HTTP/1.1" 200 -
+2026-05-28 21:14:58,276 — 127.0.0.1 - - [28/May/2026 21:14:58] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-28 21:15:01,729 — 127.0.0.1 - - [28/May/2026 21:15:01] "GET / HTTP/1.1" 200 -
+2026-05-28 21:15:01,768 — 127.0.0.1 - - [28/May/2026 21:15:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-28 21:50:26,066 —  * Detected change in 'C:\\Users\\User\\Desktop\\date\\date_proposal\\app.py', reloading
+2026-05-28 21:50:26,107 —  * Restarting with stat
+2026-05-28 21:50:26,394 —  * Debugger is active!
+2026-05-28 21:50:26,396 —  * Debugger PIN: 120-107-968
+2026-05-28 21:50:49,172 —  * Detected change in 'C:\\Users\\User\\Desktop\\date\\date_proposal\\app.py', reloading
+2026-05-28 21:50:49,207 —  * Restarting with stat
+2026-05-28 21:50:49,460 —  * Debugger is active!
+2026-05-28 21:50:49,462 —  * Debugger PIN: 120-107-968
+2026-05-28 21:51:25,604 — 127.0.0.1 - - [28/May/2026 21:51:25] "GET / HTTP/1.1" 200 -
+2026-05-28 21:51:25,700 — 127.0.0.1 - - [28/May/2026 21:51:25] "GET /static/style.css HTTP/1.1" 200 -
+2026-05-28 21:51:34,059 — ანჯელინამ აირჩია პარასკევი
+2026-05-28 21:51:34,991 — ელფოსტის გაგზავნა ვერ მოხერხდა: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-490929652c9sm51477705e9.14 - gsmtp')
+2026-05-28 21:51:34,993 — 127.0.0.1 - - [28/May/2026 21:51:34] "POST /celebrate HTTP/1.1" 200 -
+2026-05-28 21:51:35,031 — 127.0.0.1 - - [28/May/2026 21:51:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-28 21:52:55,267 — ანჯელინამ აირჩია პარასკევი
+2026-05-28 21:52:56,172 — ელფოსტის გაგზავნა ვერ მოხერხდა: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-45eef3cb25dsm894430f8f.8 - gsmtp')
+2026-05-28 21:52:56,174 — 127.0.0.1 - - [28/May/2026 21:52:56] "POST /celebrate HTTP/1.1" 200 -
+2026-05-28 21:52:56,204 — 127.0.0.1 - - [28/May/2026 21:52:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-28 21:54:58,588 —  * Detected change in 'C:\\Users\\User\\Desktop\\date\\date_proposal\\app.py', reloading
+2026-05-28 21:54:58,626 —  * Restarting with stat
+2026-05-28 21:54:58,891 —  * Debugger is active!
+2026-05-28 21:54:58,893 —  * Debugger PIN: 120-107-968
+2026-05-28 21:55:34,451 — 127.0.0.1 - - [28/May/2026 21:55:34] "GET / HTTP/1.1" 200 -
+2026-05-28 21:55:34,548 — 127.0.0.1 - - [28/May/2026 21:55:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-28 21:55:38,151 — ანჯელინამ აირჩია პარასკევი
+2026-05-28 21:55:39,091 — ელფოსტის გაგზავნა ვერ მოხერხდა: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4909294cafasm55113395e9.11 - gsmtp')
+2026-05-28 21:55:39,093 — 127.0.0.1 - - [28/May/2026 21:55:39] "POST /celebrate HTTP/1.1" 200 -
+2026-05-28 21:55:39,133 — 127.0.0.1 - - [28/May/2026 21:55:39] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-28 21:55:46,113 — ანჯელინამ აირჩია შაბათი
+2026-05-28 21:55:46,999 — ელფოსტის გაგზავნა ვერ მოხერხდა: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-49092a925acsm95701515e9.14 - gsmtp')
+2026-05-28 21:55:46,999 — 127.0.0.1 - - [28/May/2026 21:55:46] "POST /celebrate HTTP/1.1" 200 -
+2026-05-28 21:55:47,039 — 127.0.0.1 - - [28/May/2026 21:55:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-28 21:56:52,987 — 127.0.0.1 - - [28/May/2026 21:56:52] "GET / HTTP/1.1" 200 -
+2026-05-28 21:56:53,014 — 127.0.0.1 - - [28/May/2026 21:56:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-28 21:57:00,870 — ანჯელინამ აირჩია პარასკევი
+2026-05-28 21:57:01,803 — ელფოსტის გაგზავნა ვერ მოხერხდა: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4909a73d5easm1146645e9.22 - gsmtp')
+2026-05-28 21:57:01,804 — 127.0.0.1 - - [28/May/2026 21:57:01] "POST /celebrate HTTP/1.1" 200 -
+2026-05-28 21:57:01,839 — 127.0.0.1 - - [28/May/2026 21:57:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-28 22:01:19,141 — 127.0.0.1 - - [28/May/2026 22:01:19] "GET / HTTP/1.1" 200 -
+2026-05-28 22:01:19,172 — 127.0.0.1 - - [28/May/2026 22:01:19] "GET /static/style.css HTTP/1.1" 200 -
+2026-05-28 22:01:24,779 — ანჯელინამ აირჩია პარასკევი
+2026-05-28 22:01:25,684 — ელფოსტის გაგზავნა ვერ მოხერხდა: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-49092657a1esm49813345e9.7 - gsmtp')
+2026-05-28 22:01:25,685 — 127.0.0.1 - - [28/May/2026 22:01:25] "POST /celebrate HTTP/1.1" 200 -
+2026-05-28 22:01:25,720 — 127.0.0.1 - - [28/May/2026 22:01:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-28 22:02:03,289 —  * Detected change in 'C:\\Users\\User\\Desktop\\date\\date_proposal\\app.py', reloading
+2026-05-28 22:02:03,332 —  * Restarting with stat

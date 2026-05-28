@@ -1,0 +1,178 @@
+/* ---------------------------------------------------------------
+   Date Proposal Styles
+   Warm palette: soft pinks, peach, cream, soft red.
+   Font: Noto Sans Georgian (supports Georgian script)
+   --------------------------------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans Georgian', 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #fff0f3 0%, #ffe4e1 50%, #fff5ee 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #5a3a3a;
+    overflow-x: hidden;
+}
+
+.container {
+    text-align: center;
+    padding: 2rem;
+    max-width: 600px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(255, 105, 97, 0.15);
+    backdrop-filter: blur(8px);
+    animation: fadeIn 1s ease-out;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    color: #c1444e;
+    line-height: 1.3;
+}
+
+.sub-text {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #8b5a5a;
+    font-weight: 600;
+}
+
+/* Buttons */
+.btn {
+    font-family: 'Noto Sans Georgian', 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 0.9rem 2.2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin: 0.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-yes {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.btn-no {
+    background: linear-gradient(135deg, #cfd9df 0%, #e2ebf0 100%);
+    color: #555;
+    transition: left 0.4s ease-out, top 0.4s ease-out, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-day {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    color: #8b4513;
+}
+
+/* Choice and form areas */
+.choice-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    min-height: 120px;
+}
+
+.day-form {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.day-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Celebrate page */
+.celebrate-container {
+    animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.heart {
+    font-size: 4rem;
+    margin-top: 1.5rem;
+    animation: pulse 1.5s infinite;
+}
+
+/* Floating hearts background */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.floating-heart {
+    position: absolute;
+    top: -10%;
+    animation: floatDown linear forwards;
+    opacity: 0.8;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+@keyframes floatDown {
+    0%   { top: -10%; opacity: 1; }
+    100% { top: 110%; opacity: 0; }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 0.8rem 1.8rem;
+    }
+
+    .choice-area {
+        gap: 0.5rem;
+    }
+}

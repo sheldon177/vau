@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>მან თქვა კი!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container celebrate-container">
+        <h1>{{ message }}</h1>
+        <div class="heart">💖</div>
+    </div>
+
+    <!-- Floating hearts animation -->
+    <div class="hearts-container" id="hearts-container"></div>
+
+    <script>
+        // Simple floating hearts confetti
+        const container = document.getElementById('hearts-container');
+        const hearts = ['💖', '💕', '💗', '💘', '💝', '❤️'];
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            heart.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+            container.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        // Create hearts continuously
+        setInterval(createHeart, 400);
+
+        // Create a burst on load
+        for (let i = 0; i < 15; i++) {
+            setTimeout(createHeart, i * 100);
+        }
+    </script>
+</body>
+</html>

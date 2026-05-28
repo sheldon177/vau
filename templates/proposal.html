@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>პაემნის შეთავაზება ანჯელინას</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>ანჯელინა, დამითმობ ერთ საღამოს? </h1>
+
+        <!-- Initial yes/no choice -->
+        <div id="choice-area" class="choice-area">
+            <button id="yes-btn" class="btn btn-yes">კი</button>
+            <button id="no-btn" class="btn btn-no">არ მცალია</button>
+        </div>
+
+        <!-- Day picker, hidden until Yes is clicked -->
+        <form id="day-form" action="/celebrate" method="POST" class="day-form hidden">
+            <p class="sub-text">აირჩიე დღე:</p>
+            <div class="day-buttons">
+                <button type="submit" name="day" value="პარასკევი" class="btn btn-day">პარასკევი</button>
+                <button type="submit" name="day" value="შაბათი" class="btn btn-day">შაბათი</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yes-btn');
+        const noBtn = document.getElementById('no-btn');
+        const dayForm = document.getElementById('day-form');
+        const choiceArea = document.getElementById('choice-area');
+
+        let yesScale = 1;
+        let noScale = 1;
+        let noRunCount = 0;
+
+        // When "No" is hovered, it runs away and "Yes" grows
+        noBtn.addEventListener('mouseover', () => {
+            handleNoInteraction();
+        });
+
+        // Also run away on click (mobile friendly)
+        noBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            handleNoInteraction();
+        });
+
+        function handleNoInteraction() {
+            noRunCount++;
+            moveNoButton();
+            growYesButton();
+            shrinkNoButton();
+        }
+
+        // Reveal day picker when "Yes" is clicked
+        yesBtn.addEventListener('click', () => {
+            choiceArea.classList.add('hidden');
+            dayForm.classList.remove('hidden');
+        });
+
+        function moveNoButton() {
+            // On first move, switch to fixed position at current spot so
+            // CSS transition glides smoothly instead of jumping.
+            if (noBtn.style.position !== 'fixed') {
+                const rect = noBtn.getBoundingClientRect();
+                noBtn.style.position = 'fixed';
+                noBtn.style.left = rect.left + 'px';
+                noBtn.style.top = rect.top + 'px';
+                // force reflow so the browser records the starting point
+                noBtn.offsetHeight;
+            }
+
+            // Pick a new random spot within the viewport
+            const padding = 20;
+            const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+            const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+        }
+
+        function growYesButton() {
+            yesScale += 0.15;
+            yesBtn.style.transform = `scale(${yesScale})`;
+        }
+
+        function shrinkNoButton() {
+            // Keep the button visible for at least 10 runs, then let it shrink away
+            if (noRunCount <= 10) {
+                // Slight shrink but stay clearly visible during the first 10 runs
+                noScale = Math.max(0.85, noScale - 0.015);
+            } else {
+                // After 10 runs, shrink more noticeably toward disappearance
+                noScale = Math.max(0.1, noScale - 0.1);
+                if (noScale <= 0.15) {
+                    noBtn.style.display = 'none';
+                }
+            }
+            noBtn.style.transform = `scale(${noScale})`;
+        }
+    </script>
+</body>
+</html>
