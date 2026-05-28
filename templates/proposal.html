@@ -20,11 +20,30 @@
         </div>
 
         <!-- Day picker, hidden until Yes is clicked -->
-        <form id="day-form" action="/celebrate" method="POST" class="day-form hidden">
+        <div id="day-step" class="day-form hidden">
             <p class="sub-text">აირჩიე დღე:</p>
             <div class="day-buttons">
-                <button type="submit" name="day" value="პარასკევი" class="btn btn-day">პარასკევი</button>
-                <button type="submit" name="day" value="შაბათი" class="btn btn-day">შაბათი</button>
+                <button type="button" data-day="პარასკევი" class="btn btn-day day-option">პარასკევი</button>
+                <button type="button" data-day="შაბათი" class="btn btn-day day-option">შაბათი</button>
+            </div>
+        </div>
+
+        <!-- Time picker, hidden until a day is chosen -->
+        <form id="celebrate-form" action="/celebrate" method="POST" class="time-form hidden">
+            <p class="sub-text">შესანიშნავი! რა დრო გიხდება? ⏰</p>
+            <input type="hidden" name="day" id="selected-day">
+            <div class="time-grid">
+                <button type="submit" name="time" value="1:00 PM" class="btn btn-time">1 PM</button>
+                <button type="submit" name="time" value="2:00 PM" class="btn btn-time">2 PM</button>
+                <button type="submit" name="time" value="3:00 PM" class="btn btn-time">3 PM</button>
+                <button type="submit" name="time" value="4:00 PM" class="btn btn-time">4 PM</button>
+                <button type="submit" name="time" value="5:00 PM" class="btn btn-time">5 PM</button>
+                <button type="submit" name="time" value="6:00 PM" class="btn btn-time">6 PM</button>
+                <button type="submit" name="time" value="7:00 PM" class="btn btn-time">7 PM</button>
+                <button type="submit" name="time" value="8:00 PM" class="btn btn-time">8 PM</button>
+                <button type="submit" name="time" value="9:00 PM" class="btn btn-time">9 PM</button>
+                <button type="submit" name="time" value="10:00 PM" class="btn btn-time">10 PM</button>
+                <button type="submit" name="time" value="11:00 PM" class="btn btn-time">11 PM</button>
             </div>
         </form>
     </div>
@@ -32,8 +51,11 @@
     <script>
         const yesBtn = document.getElementById('yes-btn');
         const noBtn = document.getElementById('no-btn');
-        const dayForm = document.getElementById('day-form');
         const choiceArea = document.getElementById('choice-area');
+        const dayStep = document.getElementById('day-step');
+        const celebrateForm = document.getElementById('celebrate-form');
+        const selectedDayInput = document.getElementById('selected-day');
+        const dayOptions = document.querySelectorAll('.day-option');
 
         let yesScale = 1;
         let noScale = 1;
@@ -60,7 +82,16 @@
         // Reveal day picker when "Yes" is clicked
         yesBtn.addEventListener('click', () => {
             choiceArea.classList.add('hidden');
-            dayForm.classList.remove('hidden');
+            dayStep.classList.remove('hidden');
+        });
+
+        // When a day is chosen, reveal the time picker
+        dayOptions.forEach(btn => {
+            btn.addEventListener('click', () => {
+                selectedDayInput.value = btn.dataset.day;
+                dayStep.classList.add('hidden');
+                celebrateForm.classList.remove('hidden');
+            });
         });
 
         function moveNoButton() {

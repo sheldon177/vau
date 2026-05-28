@@ -4,7 +4,6 @@ A simple Flask app to propose a date and store responses in SQLite.
 """
 
 import sqlite3
-from datetime import datetime
 
 from flask import Flask, render_template, request, abort
 
@@ -36,11 +35,21 @@ def init_db() -> None:
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 answer TEXT NOT NULL,
                 day TEXT NOT NULL,
+                time TEXT NOT NULL,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
             """
         )
         conn.commit()
+
+    # Gracefully add the time column to existing tables from older versions
+    try:
+        with get_db() as conn:
+            conn.execute("ALTER TABLE responses ADD COLUMN time TEXT;")
+            conn.commit()
+    except sqlite3.OperationalError:
+        # Column already exists — nothing to do
+        pass
 
 
 # Auto-initialize the DB on first import / startup
@@ -60,16 +69,17 @@ def index():
 @app.route("/celebrate", methods=["POST"])
 def celebrate():
     """
-    Accept the chosen day, render the celebration page,
+    Accept the chosen day and time, render the celebration page,
     and store the response in SQLite.
     """
     day = request.form.get("day", "შაბათი")
+    time = request.form.get("time", "8:00 PM")
 
     # Persist Angelina's response
     with get_db() as conn:
         conn.execute(
-            "INSERT INTO responses (answer, day) VALUES (?, ?);",
-            ("yes", day),
+            "INSERT INTO responses (answer, day, time) VALUES (?, ?, ?);",
+            ("yes", day, time),
         )
         conn.commit()
 
@@ -78,7 +88,7 @@ def celebrate():
     else:
         message = "ძაან კაი )) თეთრი რაშით გამოგივლი მაშინ შაბათს❤️"
 
-    return render_template("celebrate.html", day=day, message=message)
+    return render_template("celebrate.html", day=day, time=time, message=message)
 
 
 @app.route("/admin")
@@ -92,7 +102,7 @@ def admin():
 
     with get_db() as conn:
         rows = conn.execute(
-            "SELECT id, answer, day, created_at FROM responses ORDER BY created_at DESC;"
+            "SELECT id, answer, day, time, created_at FROM responses ORDER BY created_at DESC;"
         ).fetchall()
 
     return render_template("admin.html", rows=rows)
